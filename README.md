@@ -123,7 +123,7 @@ def lambda_handler(event, context):
 
 <img width="901" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/cc80165b-694a-4523-8207-95870092a5f4">
 
-**Step-5** Enter event name -> select Event sharing settings (Private) -> edit below code in Even JSON
+**Step-5** Enter event name -> select Event sharing settings (Private) -> edit below code in Even JSON -> save
 
 ```
 {
@@ -136,6 +136,12 @@ def lambda_handler(event, context):
 
 <img width="731" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/aed4d2e1-9b7d-4986-ba46-b082f9b1714c">
 
+**Step-6** click on TEST button and see below outout
 
+<img width="623" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/1b560cd4-871a-411d-9a12-78ebda1c880f">
+
+# Now we naviagte to APIGateway
+
+<img width="617" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/38d3fc51-9f55-4433-850f-0c737fc9c4be">
 
 
