@@ -95,7 +95,7 @@ Designed and implemented a serverless web application on AWS using Lambda, Ampli
 
 <img width="950" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/417bd72c-6c0b-45b5-87e1-4d33ab1c13f8">
 
-**Step-3** In test section modify this code from my lambda-orginal file
+**Step-3** In test section modify this code from my lambda-orginal file and save that code (cntrl+S)
 
 ```
 # import the JSON utility package
@@ -118,6 +118,23 @@ def lambda_handler(event, context):
 ```
 
 <img width="917" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/913f7925-20a1-49c9-b925-20f766ecce84">
+
+**Step-4** configure test event
+
+<img width="901" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/cc80165b-694a-4523-8207-95870092a5f4">
+
+**Step-5** Enter event name -> select Event sharing settings (Private) -> edit below code in Even JSON
+
+```
+{
+  "base": 2,
+  "Exponent": 3
+ 
+}
+
+```
+
+<img width="731" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/aed4d2e1-9b7d-4986-ba46-b082f9b1714c">
 
 
 
