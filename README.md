@@ -144,4 +144,52 @@ def lambda_handler(event, context):
 
 <img width="617" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/38d3fc51-9f55-4433-850f-0c737fc9c4be">
 
+**Step-1** Open APIGateway service -> select to create REST API
 
+<img width="540" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/4f0b2edb-7f0d-40d4-83c6-0273b03f65b2">
+
+**step-2** create API 
+
+<img width="524" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/cde5c4a2-3ddf-4570-b76f-fffcbdf7987c">
+
+**Step-3** so there is no methods on screen , create method -> slect to post in drop down
+
+<img width="541" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/2bc851d8-e86b-464d-9b2b-cc4ef430d9a8">
+<img width="527" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/df79a769-e0f5-4d21-8273-b22eedfcc877">
+
+**Step-4** Select integration type-> insert name-> Save
+
+<img width="695" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/a4ac00db-9784-4c04-9e82-578b31bf5170">
+
+**Step-5** In action menu enable CORS -> CLICK on enable CORS-> then click on YES, replace existing value.
+
+<img width="653" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/3aff52dc-85bd-4cae-b389-f889eedca820">
+<img width="692" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/3e2270f4-7e68-4039-adac-52435f1270a3">
+
+**Step-6** In action menu select Depoly API -> select Deployment stage and give name and -> Deploy
+
+<img width="668" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/1fdcf4a7-64ee-4c5d-bab8-8a4f9cabf966">
+<img width="458" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/7049f0a0-8b1f-4241-aab4-29a712271b1f">
+
+**Step-7** you can get one URL copy that url and paste in notpad.
+
+<img width="688" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/e8c341a6-99d8-49dc-ad6b-68d3c5f21706">
+
+**Step-8** Test lambda function -> check the result
+
+<img width="696" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/2e820ad0-ede0-408b-be90-dfa6b083e63f">
+<img width="696" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/e3eccc2d-0918-4499-90c7-dea99061b6c6">
+
+# Nevigate to DynamoDB and IAM
+
+<img width="565" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/8a5f29f0-0091-47c9-829d-3602476e8194">
+
+**Step-1** create table -> insert name of table -> select ID -> then Click on Create table
+
+<img width="833" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/02094cf4-7fa0-466f-9a2f-2582893e9451">
+<img width="485" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/cc7b273b-e8f3-48ab-ac7a-7a3301133c2c">
+
+**Step-2** click on mathfunction -> click on additional info-> copy that URL -> paste in notepad
+
+<img width="932" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/51709cbf-323a-4938-9718-e25c58c43e3b">
+<img width="929" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/75d97da3-1f3e-4f4f-a635-a796fa2b7cac">
