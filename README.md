@@ -228,6 +228,165 @@ def lambda_handler(event, context):
 
 <img width="560" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/9714af2a-8b9d-46a6-b287-71615bcfad6f">
 
-**Step-5** Paste your DyanamoDB ARN here
+**Step-5** Paste your DyanamoDB ARN here -> click on review policy-> create policy
 
 <img width="606" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/0a7164e1-6f7b-4806-9d3b-840c41832f1b">
+<img width="618" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/274e4458-50c1-4846-aa52-5ffbd3ee3601">
+
+**Step-6** Go to lambda function -> got to code-> paste code -> Test
+
+<img width="539" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/3becb685-7978-46a2-b82e-ced8be3cbaec">
+
+```
+# import the JSON utility package
+import json
+# import the Python math library
+import math
+
+# import the AWS SDK (for Python the package name is boto3)
+import boto3
+# import two packages to help us with dates and date formatting
+from time import gmtime, strftime
+
+# create a DynamoDB object using the AWS SDK
+dynamodb = boto3.resource('dynamodb')
+# use the DynamoDB object to select our table
+table = dynamodb.Table('PowerOfMathDatabase') # insert your name
+# store the current time in a human readable format in a variable
+now = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+
+# define the handler function that the Lambda service will use an entry point
+def lambda_handler(event, context):
+
+# extract the two numbers from the Lambda service's event object
+    mathResult = math.pow(int(event['base']), int(event['exponent']))
+
+# write result and time to the DynamoDB table using the object we instantiated and save response in a variable
+    response = table.put_item(
+        Item={
+            'ID': str(mathResult),
+            'LatestGreetingTime':now
+            })
+
+# return a properly formatted JSON object
+    return {
+    'statusCode': 200,
+    'body': json.dumps('Your result is ' + str(mathResult))
+    }
+
+```
+<img width="568" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/111b5dc2-089f-4b74-95cf-6007d7f1bd66">
+<img width="599" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/c1874c18-4c9e-4b7e-9eb6-a37cd5024281">
+
+**Step-7** go to dynamoDB -> Explore table item
+<img width="656" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/9596b533-e923-4816-b968-df1ec5966aaa">
+
+**we have the result you can check**
+
+<img width="659" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/79954d93-3a03-44a9-8f15-0f8a5ddbef84">
+
+**Step-8** Edit your index.html page again with following code -> add your api gate way link in code
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>To the Power of Math!</title>
+    <!-- Styling for the client UI -->
+    <style>
+    h1 {
+        color: #FFFFFF;
+        font-family: system-ui;
+		margin-left: 20px;
+        }
+	body {
+        background-color: #222629;
+        }
+    label {
+        color: #86C232;
+        font-family: system-ui;
+        font-size: 20px;
+        margin-left: 20px;
+		margin-top: 20px;
+        }
+     button {
+        background-color: #86C232;
+		border-color: #86C232;
+		color: #FFFFFF;
+        font-family: system-ui;
+        font-size: 20px;
+		font-weight: bold;
+        margin-left: 30px;
+		margin-top: 20px;
+		width: 140px;
+        }
+	 input {
+        color: #222629;
+        font-family: system-ui;
+        font-size: 20px;
+        margin-left: 10px;
+		margin-top: 20px;
+		width: 100px;
+        }
+    </style>
+    <script>
+        // callAPI function that takes the base and exponent numbers as parameters
+        var callAPI = (base,exponent)=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({"base":base,"exponent":exponent});
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("YOUR API GATEWAY ENDPOINT", requestOptions) # add your api gate way link here
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+        }
+    </script>
+</head>
+<body>
+    <h1>TO THE POWER OF MATH!</h1>
+	<form>
+        <label>Base number:</label>
+        <input type="text" id="base">
+        <label>...to the power of:</label>
+        <input type="text" id="exponent">
+        <!-- set button onClick method to call function we defined passing input values as parameters -->
+        <button type="button" onclick="callAPI(document.getElementById('base').value,document.getElementById('exponent').value)">CALCULATE</button>
+    </form>
+</body>
+</html>
+
+```
+
+<img width="670" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/d9418f46-3327-4323-8263-bcf71dac0606">
+
+**Step-9** zip that index.html file and open Amplify -> import in Amplify
+
+<img width="676" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/a8dc856a-3138-4071-82f0-f633740711b2">
+
+<img width="674" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/4884d418-9d0a-4f3b-8d84-6098a9a803cc">
+
+**Step-10** Copy that Domain and paste in google -> add input -> click on Calculate -> see result
+
+<img width="619" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/07a7e7b6-8ad1-4847-9db1-9d9258fed6a4">
+
+<img width="508" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/bafe2442-578c-4296-8c51-deb02288d051">
+
+<img width="583" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/42fceb1b-0380-4e5c-94f3-1f0378e85e5e">
+
+**Last stage** :red_circle:  **Turn off Resource**
+
+<img width="449" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/cc56ec49-ae2a-4e8d-8ec4-2a50bd1073c9">
+
+
