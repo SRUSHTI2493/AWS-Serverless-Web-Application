@@ -189,7 +189,45 @@ def lambda_handler(event, context):
 <img width="833" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/02094cf4-7fa0-466f-9a2f-2582893e9451">
 <img width="485" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/cc7b273b-e8f3-48ab-ac7a-7a3301133c2c">
 
-**Step-2** click on mathfunction -> click on additional info-> copy that URL -> paste in notepad
+**Step-2** click on mathfunction -> click on additional info-> copy that ARN -> paste in notepad
 
 <img width="932" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/51709cbf-323a-4938-9718-e25c58c43e3b">
 <img width="929" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/75d97da3-1f3e-4f4f-a635-a796fa2b7cac">
+
+**Step-3** go to lambda function that we created in earlier steps -> go to Configuration -> clicl on permission -> click on power of math function-> open in new tab
+
+<img width="571" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/d2ce199b-6d8c-470e-bbc8-23999efc55cb">
+<img width="544" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/982b8f87-66ae-4cd9-9280-b2269036c524">
+<img width="611" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/78fc9321-c8d9-4f94-89bb-ed55423ffd42">
+
+**Step-4** click on json -> paste policy here 
+
+<img width="510" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/e33c13f7-a9e3-4884-baf5-07b50a0b4cfa">
+
+```
+{
+"Version": "2012-10-17",
+"Statement": [
+    {
+        "Sid": "VisualEditor0",
+        "Effect": "Allow",
+        "Action": [
+            "dynamodb:PutItem",
+            "dynamodb:DeleteItem",
+            "dynamodb:GetItem",
+            "dynamodb:Scan",
+            "dynamodb:Query",
+            "dynamodb:UpdateItem"
+        ],
+        "Resource": "YOUR-TABLE-ARN"
+    }
+    ]
+}
+
+```
+
+<img width="560" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/9714af2a-8b9d-46a6-b287-71615bcfad6f">
+
+**Step-5** Paste your DyanamoDB ARN here
+
+<img width="606" alt="image" src="https://github.com/SRUSHTI2493/AWS-Serverless-Web-Application/assets/87080882/0a7164e1-6f7b-4806-9d3b-840c41832f1b">
